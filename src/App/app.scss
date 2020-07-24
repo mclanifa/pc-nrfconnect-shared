@@ -6,6 +6,10 @@
     height: 100%;
     display: flex;
     flex-flow: column;
+
+    &.with-top-border {
+        border-top: 1px solid $gray-800;
+    }
 }
 
 .core19-app-content {

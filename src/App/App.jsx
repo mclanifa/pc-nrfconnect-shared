@@ -42,6 +42,7 @@ import { useSelector } from 'react-redux';
 
 import Mousetrap from 'mousetrap';
 import { ipcRenderer } from 'electron';
+import os from 'os';
 
 import LogViewer from '../Log/LogViewer';
 import About from '../About/About';
@@ -69,8 +70,10 @@ const ConnectedApp = ({
         Mousetrap.bind('alt+l', () => ipcRenderer.send('open-app-launcher'));
     }, []);
 
+    const isWindows = os.platform() === 'win32';
+
     return (
-        <div className="core19-app">
+        <div className={`core19-app${isWindows ? ' with-top-border' : ''}`}>
             <NavBar
                 deviceSelect={deviceSelect}
                 panes={allPanes}
