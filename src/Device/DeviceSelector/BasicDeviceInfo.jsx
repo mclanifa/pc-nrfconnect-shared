@@ -82,11 +82,9 @@ DeviceSerialNumber.propTypes = {
     device: deviceShape.isRequired,
 };
 
-const BasicDeviceInfo = ({
-    device, deviceNameInputRef, whiteBackground, toggles,
-}) => (
+const BasicDeviceInfo = ({ device, deviceNameInputRef, toggles }) => (
     <div className="basic-device-info">
-        <DeviceIcon device={device} whiteBackground={whiteBackground} />
+        <DeviceIcon device={device} />
         <div className="details">
             <DeviceName device={device} inputRef={deviceNameInputRef} />
             <DeviceSerialNumber device={device} />
@@ -99,7 +97,6 @@ const BasicDeviceInfo = ({
 BasicDeviceInfo.propTypes = {
     device: deviceShape.isRequired,
     deviceNameInputRef: shape({ current: shape({ focus: func.isRequired }) }),
-    whiteBackground: bool.isRequired,
     toggles: node,
 };
 
